@@ -9,33 +9,34 @@ con = connectToDatabase()
 
 # Excecuting query
 cur = con.cursor()
-cur.execute("SELECT country_name, pop_size FROM country")
+cur.execute("WITH T AS (SELECT country_id, MAX(vaccination_total) AS latest_num FROM daily_vaccination GROUP BY country_id ), U AS ( SELECT country_name, country_id, pop_size FROM country )SELECT U.country_name, T.latest_num, U.pop_size FROM T, U WHERE T.country_id = U.country_id")
 
 # Retrieving results
 sql_table = cur.fetchall()
 
-### METHOD 2 ### (Easier to understand my opinion) 
-
 # Isolating x and y tables
-x_col = []
-y_col = []
+country_names = []
+vax_num = []
+pop_size = []
 
 for row_number in range(len(sql_table)):
-    x_col.append(sql_table[row_number][0])
-    y_col.append(sql_table[row_number][1])
+    country_names.append(sql_table[row_number][0])
+    vax_num.append(sql_table[row_number][1])
+    pop_size.append(sql_table[row_number][2])
+
 
 # Creating chart
-fig_two = go.Figure([go.Bar(x=x_col, y=y_col)])
+fig = go.Figure(data=[
+    go.Bar(name='People Vaccinated', x=country_names, y=vax_num, marker_color="#0FA3B1"),
+    go.Bar(name='Population', x=country_names, y=pop_size, marker_color="#EAD2AC")
+])
 
-fig_two.update_layout(
-    title = "Population",
-    xaxis_title = "country_name",
-    yaxis_title = "pop_size",
+fig.update_layout(
+    title = "Population vs. Vaccinations",
     dragmode = "pan"
 )
 
-fig_two.show()
-
+fig.show()
 
 # # Close database (regardless of method)
 con.close()

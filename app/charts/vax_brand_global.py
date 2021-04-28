@@ -17,8 +17,6 @@ cur.execute(
 sql_table = cur.fetchall()
 sql_table = list(sql_table)
 
-### METHOD 2 ### (Easier to understand my opinion) 
-
 # Filling countries with no vaccine of a certain brand with zeroes
 vaccine_name = []
 
@@ -64,10 +62,10 @@ for i in range(len(country_name)):
 
 # Creating chart
 fig = go.Figure(data=bar_data)
-# Change the bar mode
 
+# Change the bar mode
 fig.update_layout(
-    title = "Vaccine Brands Throughout the Globe",
+    title = "People Vaccinated per Brand Globally",
     yaxis_title = "Vaccine Brand",
     xaxis_title = "People Vaccinated",
     dragmode = "pan",
@@ -75,7 +73,6 @@ fig.update_layout(
     legend_traceorder="reversed"
 )
 fig.show()
-
 
 # # Close database (regardless of method)
 con.close()
