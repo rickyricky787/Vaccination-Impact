@@ -8,3 +8,8 @@ from .graph5 import graph5
 from .graph6 import graph6
 from .graph7 import graph7
 from .graph8 import graph8
+from .graph9 import graph9
+from .table1 import table1
+from .table2 import table2
+from .table3 import table3
+from .table4 import table4
