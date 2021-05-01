@@ -8,28 +8,47 @@
 
 
         <div>
-            {{plot1 | safe}}
+            {{plots[0] | safe}}
         </div>
         <div>
-            {{plot2 | safe}}
+            {{plots[1] | safe}}
         </div>
         <div>
-            {{plot3 | safe}}
+            {{plots[2] | safe}}
         </div>
         <div>
-            {{plot4 | safe}}
+            {{plots[3] | safe}}
         </div>
         <div>
-            {{plot5 | safe}}
+            {{plots[4] | safe}}
+        </div>
+
+        <form class="form-inline" method="POST" action="{{ url_for('index') }}#target" id="target">
+            <div class="form-group">
+              <div class="input-group">
+                  <span class="input-group-addon">Please select</span>
+                      <select name="country" class="selectpicker form-control">
+                        {% for name in country_names %}
+                            {% if name == selection %}
+                                <option value="{{ name }}" selected>{{ name }}</option>
+                            {% endif %}
+
+                        <option value="{{ name }}">{{ name }}</option>
+                        {% endfor %}
+                      </select>
+              </div>
+              <button type="submit" class="btn btn-default">Go</button>
+            </div>
+        </form>
+        
+        <div>
+            {{plots[5] | safe}}
         </div>
         <div>
-            {{plot6 | safe}}
+            {{plots[6] | safe}}
         </div>
         <div>
-            {{plot7 | safe}}
-        </div>
-        <div>
-            {{plot8 | safe}}
+            {{plots[7] | safe}}
         </div>
     </body>
 </html>
