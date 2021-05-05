@@ -61,3 +61,6 @@ def index():
         country_names = helpers.getCountries(con)
 
         return render_template("index.html", plots=plots, tables=tables, country_names = country_names, selection = selection)
+
+if __name__ == '__main__':
+    app.run()
