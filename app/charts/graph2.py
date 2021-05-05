@@ -26,7 +26,10 @@ def graph2(con):
         title = "Number of Vaccine Brands per Country",
         xaxis_title = "Country",
         yaxis_title = "Count",
-        dragmode = "pan"
+        dragmode = "pan",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color="white")
     )
 
     return to_html(fig, include_plotlyjs = False, full_html=False)

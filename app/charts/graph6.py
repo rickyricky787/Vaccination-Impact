@@ -44,7 +44,10 @@ def graph6(con, country):
         title = country + " Total COVID-19 Cases and Deaths",
         xaxis_title = "Date Recorded",
         yaxis_title = "Number of People",
-        dragmode = "pan"
+        dragmode = "pan",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color="white")
     )
 
     return to_html(fig, include_plotlyjs = False, full_html=False)

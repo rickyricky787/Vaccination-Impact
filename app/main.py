@@ -35,7 +35,7 @@ def index():
         # Get list of country names
         country_names = helpers.getCountries(con)
 
-        return render_template("test.html", plots=plots, tables=tables, country_names = country_names)
+        return render_template("index.html", plots=plots, tables=tables, country_names = country_names)
     
     elif request.method == 'POST':
         selection = request.form.get('country')
@@ -62,4 +62,4 @@ def index():
         # Get list of country names
         country_names = helpers.getCountries(con)
 
-        return render_template("test.html", plots=plots, tables=tables, country_names = country_names, selection = selection)
+        return render_template("index.html", plots=plots, tables=tables, country_names = country_names, selection = selection)

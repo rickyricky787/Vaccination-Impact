@@ -67,7 +67,10 @@ def graph1(con):
         xaxis_title = "People Vaccinated",
         dragmode = "pan",
         barmode = "group",
-        legend_traceorder="reversed"
+        legend_traceorder="reversed",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color="white")
     )
 
     return to_html(fig, include_plotlyjs = False, full_html=False)

@@ -30,7 +30,10 @@ def graph3(con):
 
     fig.update_layout(
         title = "Population vs. Vaccinations",
-        dragmode = "pan"
+        dragmode = "pan",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color="white")
     )
 
     return to_html(fig, include_plotlyjs = False, full_html=False)

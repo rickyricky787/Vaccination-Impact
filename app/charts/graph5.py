@@ -28,7 +28,10 @@ def graph5(con):
         title = "Vaccinations per Continent",
         xaxis_title = "Continent",
         yaxis_title = "Number of People",
-        dragmode = "pan"
+        dragmode = "pan",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color="white")
     )
 
     return to_html(fig, include_plotlyjs = False, full_html=False)

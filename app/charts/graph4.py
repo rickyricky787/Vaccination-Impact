@@ -39,6 +39,9 @@ def graph4(con):
         xaxis_title = "Country",
         yaxis_title = "People Vaccinated (%)",
         dragmode = "pan",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color="white")
     )
 
     return to_html(fig, include_plotlyjs = False, full_html=False)

@@ -30,7 +30,10 @@ def graph9(con):
 
     fig.update_layout(
         title = "Newest Total Cases and Deaths per Country",
-        dragmode = "pan"
+        dragmode = "pan",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color="white")
     )
 
     return to_html(fig, include_plotlyjs = False, full_html=False)
