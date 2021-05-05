@@ -70,7 +70,8 @@ def graph1(con):
         legend_traceorder="reversed",
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
-        font=dict(color="white")
+        font=dict(color="white"),
+        modebar_activecolor="white"
     )
 
     return to_html(fig, include_plotlyjs = False, full_html=False)
