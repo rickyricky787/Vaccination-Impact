@@ -1,3 +1,4 @@
+flask
 numpy==1.20.2
 gunicorn
 pandas==1.2.3
