@@ -21,7 +21,6 @@ def index():
         plots.append(charts.graph4(con))
         plots.append(charts.graph5(con))
         plots.append(charts.graph6(con, "Afghanistan"))
-        plots.append(charts.graph7(con, "Afghanistan"))
         plots.append(charts.graph8(con))
         plots.append(charts.graph9(con))
         
@@ -48,7 +47,6 @@ def index():
         plots.append(charts.graph4(con))
         plots.append(charts.graph5(con))
         plots.append(charts.graph6(con, selection))
-        plots.append(charts.graph7(con, selection))
         plots.append(charts.graph8(con))
         plots.append(charts.graph9(con))
 

@@ -81,23 +81,26 @@
     </div>
 
     <br><br>
-    <form class="form-inline" method="POST" action="{{ url_for('index') }}#target" id="target">
-        <div class="form-group">
-          <div class="input-group">
-              <span class="input-group-addon px-2">Please select: </span>
-                  <select name="country" class="selectpicker form-control" style="max-width:50%;">
-                    {% for name in country_names %}
-                        {% if name == selection %}
-                            <option value="{{ name }}" selected>{{ name }}</option>
-                        {% endif %}
+    <div class="container">
+        <form class="form-inline" method="POST" action="{{ url_for('index') }}#target" id="target">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon px-2">Please select a country: </span>
+                        <select name="country" class="selectpicker form-control" style="max-width:50%;">
+                        {% for name in country_names %}
+                            {% if name == selection %}
+                                <option value="{{ name }}" selected>{{ name }}</option>
+                            {% endif %}
 
-                    <option value="{{ name }}">{{ name }}</option>
-                    {% endfor %}
-                  </select>
-                  <button class="btn btn-primary" type="submit">Go</button>
-          </div>
-        </div>
-    </form>
+                        <option value="{{ name }}">{{ name }}</option>
+                        {% endfor %}
+                        </select>
+                        <button class="btn btn-primary" type="submit">Go</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br><br>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -106,6 +109,12 @@
                 </center>
                 
             </div>
+        </div>
+    </div>
+
+    <br><br>
+    <div class="container">
+        <div class="row">
             <div class="col">
                 <center>
                     {{plots[6] | safe}}
@@ -128,18 +137,7 @@
     </div>
 
     <br><br>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <center>
-                    {{plots[8] | safe}}
-                </center>
-                
-            </div>
-        </div>
-    </div>
-
-    <br><br>
+    <center><h3 class="pb-1">Top 10</h3></center>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -155,7 +153,7 @@
                         <tbody>
                         {% for row_number in range(tables[0] | length) %}
                           <tr>
-                            <th scope="row">{{row_number}}</th>
+                            <th scope="row">{{row_number + 1}}</th>
                             <td>{{tables[0][row_number][0]}}</td>
                             <td>{{tables[0][row_number][1]}}</td>
                           </tr>
@@ -178,7 +176,7 @@
                         <tbody>
                         {% for row_number in range(tables[1] | length) %}
                           <tr>
-                            <th scope="row">{{row_number}}</th>
+                            <th scope="row">{{row_number + 1}}</th>
                             <td>{{tables[1][row_number][0]}}</td>
                             <td>{{tables[1][row_number][1]}}</td>
                           </tr>
@@ -201,7 +199,7 @@
                         <tbody>
                         {% for row_number in range(tables[2] | length) %}
                           <tr>
-                            <th scope="row">{{row_number}}</th>
+                            <th scope="row">{{row_number + 1}}</th>
                             <td>{{tables[2][row_number][0]}}</td>
                             <td>{{tables[2][row_number][1]}}</td>
                           </tr>
@@ -224,7 +222,7 @@
                         <tbody>
                         {% for row_number in range(tables[3] | length) %}
                           <tr>
-                            <th scope="row">{{row_number}}</th>
+                            <th scope="row">{{row_number + 1}}</th>
                             <td>{{tables[3][row_number][0]}}</td>
                             <td>{{tables[3][row_number][1]}}</td>
                           </tr>
