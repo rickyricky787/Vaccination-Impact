@@ -9,6 +9,10 @@ app = Flask(__name__)
 # Connecting to database
 con = connectToDatabase()
 
+# Fetching info to be used in each webpage
+country_names = helpers.getCountries(con)
+last_update_date = helpers.getLastUpdateDate(con)
+
 # Main page
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -31,10 +35,13 @@ def index():
         tables.append(charts.table3(con))
         tables.append(charts.table4(con))
 
-        # Get list of country names
-        country_names = helpers.getCountries(con)
-
-        return render_template("index.html", plots=plots, tables=tables, country_names = country_names)
+        return render_template(
+            "index.html", 
+            plots=plots, 
+            tables=tables, 
+            country_names=country_names,
+            last_update_date=last_update_date
+        )
     
     elif request.method == 'POST':
         selection = request.form.get('country')
@@ -57,10 +64,14 @@ def index():
         tables.append(charts.table3(con))
         tables.append(charts.table4(con))
 
-        # Get list of country names
-        country_names = helpers.getCountries(con)
-
-        return render_template("index.html", plots=plots, tables=tables, country_names = country_names, selection = selection)
+        return render_template(
+            "index.html", 
+            plots=plots, 
+            tables=tables, 
+            country_names=country_names, 
+            selection = selection,
+            last_update_date=last_update_date
+        )
 
 if __name__ == '__main__':
     app.run()

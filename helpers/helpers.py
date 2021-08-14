@@ -13,3 +13,11 @@ def getCountries(con):
 
 def formatString(string):
     return "\"" + string + "\""
+
+# Returns the date of the recent update on the database
+def getLastUpdateDate(con):
+    cur = con.cursor()
+    cur.execute("SELECT create_time FROM information_schema.tables WHERE TABLE_NAME = 'continent'")
+
+    result = cur.fetchall()
+    return result[0][0].strftime("%m-%d-%y")
