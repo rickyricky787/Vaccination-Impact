@@ -1,0 +1,5 @@
+PyGithub
+pandas
+numpy
+PyMySQL
+python-dotenv
