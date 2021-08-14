@@ -12,4 +12,5 @@ We used the data from [Our World In Data](https://github.com/owid/covid-19-data)
 - Frontend: HTML, CSS (Bootstrap)
 - Backend: Python (Flask), AWS RDS (MySQL)
 - Data Analysis Tools: Pandas, Numpy, Plotly
+- AWS Lambda used to auto scrape data from source, normalize data, and update the database daily.
 - Deployed on Heroku ([Demo](https://coviddataviz19.herokuapp.com/))
