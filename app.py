@@ -1,17 +1,20 @@
 from flask import Flask, render_template, request
-from database import connectToDatabase
+# from database import connectToDatabase
 import charts
 import helpers
+
+import sqlite3
 
 # Initiating Flask app
 app = Flask(__name__)
 
 # Connecting to database
-con = connectToDatabase()
+# con = connectToDatabase()
+con = sqlite3.connect("covid.db", check_same_thread=False)
+
 
 # Fetching info to be used in each webpage
 country_names = helpers.getCountries(con)
-last_update_date = helpers.getLastUpdateDate(con)
 
 # Main page
 @app.route("/", methods=['GET', 'POST'])
@@ -39,8 +42,7 @@ def index():
             "index.html", 
             plots=plots, 
             tables=tables, 
-            country_names=country_names,
-            last_update_date=last_update_date
+            country_names=country_names
         )
     
     elif request.method == 'POST':
@@ -69,8 +71,7 @@ def index():
             plots=plots, 
             tables=tables, 
             country_names=country_names, 
-            selection = selection,
-            last_update_date=last_update_date
+            selection = selection
         )
 
 if __name__ == '__main__':

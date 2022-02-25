@@ -6,7 +6,7 @@ from plotly.io import to_html
 def graph4(con):
     # Excecuting query
     cur = con.cursor()
-    cur.execute("WITH T AS ( SELECT country_id, MAX(vaccination_total) AS latest_num FROM daily_vaccination GROUP BY country_id ), U AS ( SELECT country_name, country_id, pop_size FROM country ) SELECT U.country_name, ((T.latest_num / U.pop_size) * 100) AS percent FROM T, U WHERE T.country_id = U.country_id")
+    cur.execute("WITH T AS ( SELECT country_id, MAX(vaccination_total) AS latest_num FROM daily_vaccination GROUP BY country_id ), U AS ( SELECT country_name, country_id, pop_size FROM country ) SELECT U.country_name, (( (T.latest_num * 1.0) / U.pop_size) * 100) AS percent FROM T, U WHERE T.country_id = U.country_id")
 
     # Retrieving results
     sql_table = cur.fetchall()
